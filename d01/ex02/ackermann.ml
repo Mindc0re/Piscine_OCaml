@@ -6,5 +6,3 @@ let rec ackermann m n =
 
 let () = 
 	print_string "Testing with m = 0 and n = 0 : " ; print_int (ackermann 4 2)
-
-
