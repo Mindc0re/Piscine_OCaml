@@ -14,10 +14,13 @@ let main () =
 	print_string "Reversing \"Hello world !\" : " ;
 	ft_print_rev "Hello world !" ;
 
-	print_string "Reversing \"a\" : " ;
-	ft_print_rev "a" ;
+	print_string "Reversing \"42\" : " ;
+	ft_print_rev "42" ;
 
 	print_string "Reversing \"\" : " ;
-	ft_print_rev ""
+	ft_print_rev "" ;
+
+	print_string "Reversing \"a\" : " ;
+	ft_print_rev "a"
 
 let () = main ()
