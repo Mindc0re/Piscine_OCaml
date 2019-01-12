@@ -209,10 +209,37 @@ end
 
 (* Deck *)
 
+type t = Card.t list
 
+let rec isNotInDeck card deck = match deck with
+	| [] -> true
+	| hd::tl when card = hd -> false
+	| hd::tl -> isNotInDeck card tl
 
+let newDeck () =
+	Random.self_init () ;
+	let rec newDeckAux deck =
+		let randCard = ( List.nth Card.all (Random.int 52) ) in
+		if List.length deck = 52 then deck
+		else if isNotInDeck randCard deck then newDeckAux (List.append deck [randCard])
+		else newDeckAux deck
+	in newDeckAux []
 
+let toStringList deck = 
+	let rec toStringListAux d acc = match d with
+		| hd::tl -> toStringListAux tl (List.append acc [Card.toString hd])
+		| [] -> acc
+	in toStringListAux deck []
 
+let toStringListVerbose deck = 
+	let rec toStringListVerboseAux d acc = match d with
+		| hd::tl -> toStringListVerboseAux tl (List.append acc [Card.toStringVerbose hd])
+		| [] -> acc
+	in toStringListVerboseAux deck []
+
+let drawCard deck = match deck with
+	| hd::tl -> (hd, tl)
+	| [] -> raise (Failure "Tried to draw a card from an empty deck.")
 
 
 
