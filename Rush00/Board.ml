@@ -4,17 +4,18 @@ let printBoard b =
 	let rec printBoardAux lst n = 
 	if n < 3 then match lst with
 	| [] -> ()
-	| g1::g2::g3::tl -> print_endline 	( 
-					(Grid.toStringLine n g1) ^ " | " ^ 
-					(Grid.toStringLine n g2) ^ " | " ^ 
-					(Grid.toStringLine n g3)
-										) ;
+	| g1::g2::g3::tl 	-> 	print_endline 	( 
+							(Grid.toStringLine n g1) ^ " | " ^ 
+							(Grid.toStringLine n g2) ^ " | " ^ 
+							(Grid.toStringLine n g3)
+											) ;
 						printBoardAux lst (n + 1)
-	| _::tl -> ()
+	| _::tl 			-> ()
 	else match lst with
-	| g1::g2::g3::tl when tl <> [] -> print_endline "---------------------" ; printBoardAux tl 0
-	| _::tl -> ()
-	| [] -> ()
+	| g1::g2::g3::tl when tl <> [] 	-> 	print_endline "---------------------" ;
+										printBoardAux tl 0
+	| _::tl 						-> ()
+	| [] 							-> ()
 	in
 	printBoardAux b 0
 
@@ -27,8 +28,8 @@ let rec isWonLine g = match g with
 						(gState g1) <> Grid.Cell.None && 
 						(gState g2) <> Grid.Cell.None 
 						-> true
-| _::tl -> isWonLine tl
-| [] -> false 
+| _::tl 				-> isWonLine tl
+| [] 					-> false 
 
 let isWonCrossCol g x y z = 
 	let xState = gState (List.nth g x) in
