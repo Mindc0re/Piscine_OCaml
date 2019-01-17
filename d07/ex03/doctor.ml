@@ -3,7 +3,7 @@ class doctor name =
 		initializer print_endline ("Doctor with name " ^ name ^ " has been created")
 
 		val 		_name:string 	= name
-		val _sidekick:People.people = new People.people ("Sara Jane Smith")
+		val _sidekick:People.people = new People.people ("Jack Harkness")
 		val mutable _hp:int 		= 100
 		val mutable _age:int 		= 0
 
