@@ -1,5 +1,5 @@
 let () =
-	let doc = new doctor ("Machin") in
+	let doc = new Doctor.doctor ("Machin") in
 	print_endline doc#to_string ;
 	doc#talk ;
 	doc#travel_in_time 2019 3519 ;

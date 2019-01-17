@@ -1,4 +1,4 @@
-main.cmo :
-main.cmx :
+main.cmo : people.cmo
+main.cmx : people.cmx
 people.cmo :
 people.cmx :
