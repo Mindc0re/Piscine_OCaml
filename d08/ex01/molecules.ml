@@ -3,27 +3,11 @@ object (this)
 
 	val _atomList = ref aList
 
-	method private print_atom_list (atomList: Atoms.atom list) =
-		let rec print_aux l = match l with
-			| hd::tl -> print_string (hd#symbol ^ " ") ; print_aux tl
-			| _ -> print_newline ()
-		in
-		print_aux atomList
-
 	method private hillList (l: Atoms.atom list) = 
 		let carbonAtoms = List.filter (fun a -> a#atomic_number = 6) l in
 		let hydrogenAtoms = List.filter (fun a -> a#atomic_number = 1) l in
 		let sortedList = List.sort (fun a b -> String.compare a#symbol b#symbol) l in
 		let noCarbonAndHydrogenList = List.filter (fun a -> a#atomic_number <> 1 && a#atomic_number <> 6) sortedList in
-
-(* 		print_string "carbonAtoms ===> " ;
-		this#print_atom_list carbonAtoms ;
-		print_string "hydrogenAtoms ===> " ;
-		this#print_atom_list hydrogenAtoms ;
-		print_string "sortedList ===> " ;
-		this#print_atom_list sortedList ;
-		print_string "noCarbonAndHydrogenList ===> " ;
-		this#print_atom_list noCarbonAndHydrogenList ; *)
 
 		if carbonAtoms = [] && hydrogenAtoms = [] then sortedList
 		else if carbonAtoms = [] && hydrogenAtoms <> [] then (hydrogenAtoms @ noCarbonAndHydrogenList)

@@ -1,0 +1,4 @@
+alkanes.cmo :
+alkanes.cmx :
+main.cmo : alkanes.cmo
+main.cmx : alkanes.cmx
