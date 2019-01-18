@@ -1,6 +1,6 @@
 NAME = ex03
 
-SOURCES = atoms.ml molecules.ml reaction.ml main.ml
+SOURCES = atoms.ml molecules.ml reaction.ml
 
 CAMLC = ocamlc
 CAMLOPT = ocamlopt
